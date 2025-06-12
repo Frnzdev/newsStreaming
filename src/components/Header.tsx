@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useState } from "react";
+import { ModeToggle } from "./theme-switcher";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -44,6 +45,7 @@ export default function Header() {
         </button>
 
         <nav className={`hidden md:flex md:items-center md:gap-8 md:ml-auto`}>
+          <ModeToggle />
           <Link href="/login">
             <Button className="bg-black text-white hover:cursor-pointer w-auto">
               Login
@@ -59,6 +61,7 @@ export default function Header() {
       >
         <div className="flex justify-center py-4">
           <Link href="/login" onClick={() => setMenuOpen(false)}>
+            <ModeToggle />
             <Button className="bg-black text-white w-full">Login</Button>
           </Link>
         </div>

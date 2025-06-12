@@ -29,7 +29,7 @@ export default function LoginPage() {
 
   return (
     <div className="h-full">
-      <div className="absolute top-6 left-6">
+      <div className="absolute mt-30 top-6 left-6">
         <Link
           href="/"
           className="text-gray-500 hover:text-blue-600 transition-colors flex items-center space-x-4"
