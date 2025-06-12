@@ -32,22 +32,24 @@ export default function LoginPage() {
       <div className="absolute mt-30 top-6 left-6">
         <Link
           href="/"
-          className="text-gray-500 hover:text-blue-600 transition-colors flex items-center space-x-4"
+          className="text-muted-foreground hover:text-primary transition-colors flex items-center space-x-4"
         >
           <House size={28} strokeWidth={2.2} />
           <span>Voltar</span>
         </Link>
       </div>
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        {" "}
+        {/* Added bg-background here */}
         <form
           onSubmit={handleSubmit}
-          className="p-6 rounded-lg shadow-md w-96 space-y-4 border-1"
+          className="p-6 rounded-lg shadow-md w-96 space-y-4 border border-border bg-card text-foreground"
         >
           <h2 className="text-2xl font-bold text-center">Login</h2>
           <input
             type="email"
             placeholder="Email"
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border border-input rounded bg-input/30 text-foreground"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -55,23 +57,25 @@ export default function LoginPage() {
           <input
             type="password"
             placeholder="Senha"
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border border-input rounded bg-input/30 text-foreground"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 hover:cursor-pointer"
+            className="w-full bg-primary text-primary-foreground py-2 rounded hover:bg-primary/90 hover:cursor-pointer"
           >
             Entrar
           </button>
           {error && (
-            <p className="text-red-500 text-sm flex justify-center ">{error}</p>
+            <p className="text-destructive text-sm flex justify-center ">
+              {error}
+            </p>
           )}
-          <p className="text-center text-sm">
+          <p className="text-center text-sm text-foreground">
             Não tem uma conta?{" "}
-            <a href="/register" className="text-blue-600 hover:underline">
+            <a href="/register" className="text-primary hover:underline">
               Cadastre-se
             </a>
           </p>

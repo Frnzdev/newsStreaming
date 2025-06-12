@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useState } from "react";
 import { ModeToggle } from "./theme-switcher";
+import { Button } from "@/components/ui/button"; // Import Button
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,12 +15,12 @@ export default function Header() {
         <Image src="/conecta.png" alt="Logo" width={240} height={39} />
 
         <button
-          className="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
+          className="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black dark:focus:ring-white"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
           <svg
-            className="w-6 h-6"
+            className="w-6 h-6 text-foreground dark:text-background"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -47,7 +47,7 @@ export default function Header() {
         <nav className={`hidden md:flex md:items-center md:gap-8 md:ml-auto`}>
           <ModeToggle />
           <Link href="/login">
-            <Button className="bg-black text-white hover:cursor-pointer w-auto">
+            <Button className=" bg-black text-white hover:cursor-pointer w-auto">
               Login
             </Button>
           </Link>
@@ -55,14 +55,15 @@ export default function Header() {
       </div>
 
       <nav
-        className={`md:hidden px-6 overflow-hidden transition-[max-height] duration-300 ease-in-out bg-gray-200 rounded-b-2xl ${
+        className={`md:hidden px-6 overflow-hidden transition-[max-height] duration-300 ease-in-out bg-background rounded-b-2xl ${
           menuOpen ? "max-h-[80px]" : "max-h-0"
         }`}
       >
         <div className="flex justify-center py-4">
           <Link href="/login" onClick={() => setMenuOpen(false)}>
-            <ModeToggle />
-            <Button className="bg-black text-white w-full">Login</Button>
+            <Button className="bg-primary text-primary-foreground w-full">
+              Login
+            </Button>
           </Link>
         </div>
       </nav>
