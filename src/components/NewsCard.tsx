@@ -71,19 +71,17 @@ export default function NewsCard({
   return (
     <>
       {openModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-background/30">
-          <div className="relative bg-card rounded-xl shadow-lg w-[90%] max-w-xl max-h-[90vh] overflow-y-auto p-6 animate-fade-in-up">
+        <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/30">
+          <div className="relative bg-white text-black rounded-xl shadow-lg w-[90%] max-w-xl max-h-[90vh] overflow-y-auto p-6 animate-fade-in-up">
             <button
               onClick={handleCloseModal}
-              className="absolute top-4 right-4 text-muted-foreground hover:text-foreground"
+              className="absolute top-4 right-4 text-gray-600 hover:text-black"
               aria-label="Fechar modal"
             >
               <X size={20} />
             </button>
 
-            <h2 className="text-xl font-semibold mb-4 text-foreground">
-              {title}
-            </h2>
+            <h2 className="text-xl font-semibold mb-4">{title}</h2>
 
             {image_url && (
               <img
@@ -93,12 +91,10 @@ export default function NewsCard({
               />
             )}
 
-            <p className="text-foreground mb-4">
-              {description || "Sem descrição disponível."}
-            </p>
+            <p className="mb-4">{description || "Sem descrição disponível."}</p>
 
             {loadingVideo ? (
-              <p className="text-muted-foreground mb-4">Carregando vídeo...</p>
+              <p className="text-gray-600 mb-4">Carregando vídeo...</p>
             ) : videoId ? (
               <div className="aspect-video mb-4">
                 <iframe
@@ -110,9 +106,7 @@ export default function NewsCard({
                 ></iframe>
               </div>
             ) : (
-              <p className="text-muted-foreground mb-4">
-                Nenhum vídeo encontrado.
-              </p>
+              <p className="text-gray-600 mb-4">Nenhum vídeo encontrado.</p>
             )}
 
             {url && (
@@ -120,7 +114,7 @@ export default function NewsCard({
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block text-primary hover:underline text-sm"
+                className="inline-block text-blue-600 hover:underline text-sm"
               >
                 Ler matéria completa
               </a>
@@ -131,7 +125,7 @@ export default function NewsCard({
 
       <div
         onClick={handleOpenModal}
-        className="bg-card shadow-md rounded-lg p-4 flex flex-col cursor-pointer hover:shadow-lg transition"
+        className="bg-white shadow-md rounded-lg p-4 flex flex-col cursor-pointer hover:shadow-lg transition"
       >
         {image_url ? (
           <img
@@ -140,26 +134,24 @@ export default function NewsCard({
             className="w-full h-40 object-cover rounded-lg mb-2"
           />
         ) : (
-          <div className="w-full h-40 bg-muted rounded-lg mb-2 flex items-center justify-center text-muted-foreground">
+          <div className="w-full h-40 bg-gray-200 rounded-lg mb-2 flex items-center justify-center text-gray-500">
             Sem Imagem
           </div>
         )}
 
-        <h2 className="text-md font-semibold text-foreground mb-1 line-clamp-2">
-          {title}
-        </h2>
+        <h2 className="text-md font-semibold mb-1 line-clamp-2">{title}</h2>
 
-        <p className="text-sm text-foreground flex-grow line-clamp-3">
+        <p className="text-sm flex-grow line-clamp-3">
           {description || "Sem descrição disponível."}
         </p>
 
-        <p className="text-xs text-muted-foreground mt-2 flex items-center">
+        <p className="text-xs text-gray-500 mt-2 flex items-center">
           <CalendarDays className="mr-2" width={16} height={16} />
           {formattedDate}
         </p>
 
         {url && (
-          <p className="text-primary hover:underline mt-2 text-sm">
+          <p className="text-blue-600 hover:underline mt-2 text-sm">
             Clique para ler mais
           </p>
         )}
